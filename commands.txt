@@ -5,3 +5,6 @@ npm i morgan
 
 npm i mongoose 
 npm i ip-address
+
+npm i -D jest supertest
+npm install mongodb-memory-server -D

@@ -7,11 +7,18 @@ function validateMaxPeripherals(value) {
     return value.length <= MAX_PERIPHERALS;
 }
 
+async function validateIfExistPeripheral(peripherals) {
+    const peripheralCount = await mongoose.models.Peripheral.countDocuments({
+      _id: { $in: peripherals },
+    });
+    return peripheralCount === peripherals.length;
+}
+
 const gatewaySchema = new mongoose.Schema({
     serialNumber:{
         type: String,
         unique: true,
-        require: true,
+        required: true,
         trim: true
     },
     name:{
@@ -34,7 +41,18 @@ const gatewaySchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Peripheral',
         }],
-        validate: [validateMaxPeripherals, `A maximum of ${MAX_PERIPHERALS} peripherals is allowed.`]
+        validate: [
+            {
+              validator: validateMaxPeripherals,
+              message: `A maximum of ${MAX_PERIPHERALS} peripherals is allowed.`,
+            },
+            {
+              validator: validateIfExistPeripheral,
+              message: 'One or more peripherals do not exist in the database.',
+            },
+          ],
+        // validate: [validateMaxPeripherals, `A maximum of ${MAX_PERIPHERALS} peripherals is allowed.`]
+        // validate: [validateIfExistPeripheral, 'One or more peripherals do not exist in the database.']
     }
 }, {
     timestamps: true
