@@ -1,4 +1,4 @@
-## Gateways
+<!-- ## Gateways
 
 [[_TOC_]]
 
@@ -60,6 +60,47 @@ While implementing your solution **please take care of the following requirement
 - Unit tests;
 - Use a framework of your choice, but popular, up-to-date, and long-term support versions are recommended.
 
----
+--- -->
+
+## Stack
+- Backend: NodeJS + Express + MongoDB REST API 
+
+- CRUD Operations: create/read/update/delete gateways and peripherals
+
+### Installation
+
+```sh
+git clone https://oauth:glpat-2r4Q5zpjfpstAZCfPrFy@gitlab.com/musala_soft/DEV_GATEWAYS-0c403a10-b50c-21b3-ce88-b55586b2c90b.git
+cd DEV_GATEWAYS-0c403a10-b50c-21b3-ce88-b55586b2c90b
+npm i
+npm run dev # run in development mode
+npm start # run in production mode
+```
+
+> You need to have Mongodb installed Locally or stablish a MONGODB_URI environment variable in order to connect to any mongodb instance (using Mongodb Atlas for example)
+
+### Environment Variables
+
+Rename the file `.env.template` to `.env` and adjust the variables values properly
+    
+This app needs the following environment Variables
+
+- `MONGODB_URI` this is the Mongodb URI string
+- `PORT` the server http port for the application
+
+### docker-compose
+
+The most easy way to install the entire project is using docker-compose:
+
+```shell
+git clone https://oauth:glpat-2r4Q5zpjfpstAZCfPrFy@gitlab.com/musala_soft/DEV_GATEWAYS-0c403a10-b50c-21b3-ce88-b55586b2c90b.git
+cd DEV_GATEWAYS-0c403a10-b50c-21b3-ce88-b55586b2c90b
+docker-compose up
+```
+
+
+### Testing environment
+1. Rename the file `.env.template` to `.env-test` and adjust the variables values properly
+2. Run `docker-compose -f docker-compose.test.yml run node npm run test`
 
 :scroll: **END** 
