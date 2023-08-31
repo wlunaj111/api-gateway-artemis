@@ -21,6 +21,8 @@
   },
   "homepage": "https://gitlab.com/musala_soft/DEV_GATEWAYS-0c403a10-b50c-21b3-ce88-b55586b2c90b#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "is-ip": "^5.0.1",
     "mongoose": "^7.4.4",

@@ -8,3 +8,5 @@ npm i ip-address
 
 npm i -D jest supertest
 npm install mongodb-memory-server -D
+npm i cors
+npm i dotenv
