@@ -81,9 +81,8 @@ npm start # run in production mode
 
 ### Environment Variables
 
-Rename the file `.env.template` to `.env` and adjust the variables values properly
-    
-This app needs the following environment Variables
+In the file `.env` adjust the variables values properly    
+This file needs the following environment variables
 
 - `MONGODB_URI` this is the Mongodb URI string
 - `PORT` the server http port for the application
@@ -100,7 +99,7 @@ docker-compose up
 
 
 ### Testing environment
-1. Rename the file `.env.template` to `.env-test` and adjust the variables values properly
+1. Rename the file `.env` to `.env-test` and adjust the variables values properly
 2. Run `docker-compose -f docker-compose.test.yml run node npm run test`
 
 :scroll: **END** 
